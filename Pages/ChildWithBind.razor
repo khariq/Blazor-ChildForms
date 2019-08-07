@@ -1,0 +1,25 @@
+﻿<h3>ChildWithBind</h3>
+
+<input type="text" @bind="Id"/>
+
+
+<p>Child @Id</p>
+
+@code {
+
+	private string _id;
+	[Parameter]
+	private string Id
+	{
+		get => _id;
+		set
+		{
+			_id = value;
+			IdChanged.InvokeAsync(_id);
+		}
+	}
+
+	[Parameter]
+	private EventCallback<string> IdChanged { get; set; }
+
+}

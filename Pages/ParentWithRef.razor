@@ -1,0 +1,22 @@
+﻿@page "/parentWithRef"
+
+<h3>ParentWithRef</h3>
+
+<ChildWithRef @ref="child" />
+
+<p>Parent: @Id</p>
+
+@code {
+
+
+	protected override Task OnAfterRenderAsync()
+	{
+		Id = child.Id;
+		return Task.CompletedTask;
+	}
+
+	private ChildWithRef child;
+
+	private string Id { get; set; }
+
+}

@@ -1,0 +1,13 @@
+﻿@page "/parentWithBind"
+
+<h3>ParentWithBind</h3>
+
+<ChildWithBind @bind-Id="@Id" />
+
+<p>Parent @Id</p>
+
+@code {
+
+	private string Id { get; set; }
+
+}
